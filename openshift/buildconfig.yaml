@@ -1,0 +1,21 @@
+kind: BuildConfig
+apiVersion: build.openshift.io/v1
+metadata:
+  name: flask-hello-world
+  namespace: lab-c
+  labels:
+    app: flask
+spec:
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'flask-hello-world:stc'
+  strategy:
+    type: Docker
+  source:
+    type: Git
+    git:
+      uri: "https://github.com/abessifi/flask-hello-world.git"
+      ref: "flask-dockerized"
+  triggers:
+    - type: ConfigChange

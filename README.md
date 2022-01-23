@@ -49,3 +49,40 @@ $ docker-compose up
 
 ## Using OpenShift
 
+
+1. Login to OpenShift and create a namespace called `lab-c`
+
+```
+$ oc login <openshift-api-url>
+$ oc new-project lab-c
+```
+
+2. Build the flask image
+
+```
+$ oc apply -f imagestream.yaml
+$ oc apply -f buildconfig.yaml
+```
+
+**PS:** Once the build is finished, you can check the image status and tag as follow:
+
+```
+$ oc get istag
+```
+
+3. Run the image
+
+```
+$ oc apply -f deployment.yaml
+$ oc get deploy
+```
+
+4. Expose the application
+
+```
+$ oc apply -f service.yaml
+
+# Update the hostname with the openshift wildcard domain name before creating the route
+$ oc apply -f route.yaml
+```
+

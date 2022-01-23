@@ -1,0 +1,10 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+spec:
+  host: flask-hello-world-lab-c.<openshift-cluster-wildcard-domain>
+  to:
+    kind: Service
+    name: flask-hello-world
+  port:
+    targetPort: 5000
+
