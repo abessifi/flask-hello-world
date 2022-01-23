@@ -35,7 +35,17 @@ $ podman run -d --name flask flask-hello-world:stc
 $ podman ps
 ```
 
-## Using Docker Compose
+## Using Docker and Docker-Compose
+
+1. Make sure docker and docker-compose are correctly installed and the docker deamon is up and running
+
+2. Build and run with docker-compose
+
+```
+$ docker-compose up
+```
+
+**PS:** Check the `docker-compose.yml` file for more details.
 
 ## Using OpenShift
 
